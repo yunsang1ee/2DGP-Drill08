@@ -1,6 +1,10 @@
 from pico2d import *
 import random
 
+import boy
+from boy import Boy
+
+
 # Game object class here
 
 class Grass:
@@ -14,19 +18,19 @@ class Grass:
         pass
 
 
-class Boy:
-    image = None
-    def __init__(self):
-        self.x, self.y = random.randint(0, 800), 90
-        self.frame = 0
-        if self.image == None: self.image = load_image('run_animation.png')
-
-    def update(self):
-        self.frame = (self.frame + 1) % 8
-        self.x += 5
-
-    def draw(self):
-        self.image.clip_draw(self.frame * 100, 0, 100, 100, self.x, self.y)
+# class Boy:
+#     image = None
+#     def __init__(self):
+#         self.x, self.y = random.randint(0, 800), 90
+#         self.frame = 0
+#         if self.image == None: self.image = load_image('run_animation.png')
+#
+#     def update(self):
+#         self.frame = (self.frame + 1) % 8
+#         self.x += 5
+#
+#     def draw(self):
+#         self.image.clip_draw(self.frame * 100, 0, 100, 100, self.x, self.y)
 
 
 def handle_events():
@@ -37,6 +41,7 @@ def handle_events():
             running = False
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             running = False
+
 
 
 def reset_world():
